@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateProduitsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('produits', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('produits_nom');
+            $table->string('produits_description');
+            $table->double('price');
+            $table->integer('catalogues_id')->unsigned();
+            $table->timestamps();
+            $table->foreign('catalogues_id')->references('id')->on('catalogues')->onDelete('restrict')->onUpdate('restrict');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('produits');
+    }
+}
