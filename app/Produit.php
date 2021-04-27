@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produit extends Model
 {
-    //
+    public function catalogue()
+    {
+        return $this->belongsTo('App\Catalogue');
+    }
+ 
 }

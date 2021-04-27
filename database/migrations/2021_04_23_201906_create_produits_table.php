@@ -18,9 +18,9 @@ class CreateProduitsTable extends Migration
             $table->string('produits_nom');
             $table->string('produits_description');
             $table->double('price');
-            $table->integer('catalogues_id')->unsigned();
+            $table->integer('catalogue_id')->unsigned();
             $table->timestamps();
-            $table->foreign('catalogues_id')->references('id')->on('catalogues')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('catalogue_id')->references('id')->on('catalogues')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
