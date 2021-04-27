@@ -10,5 +10,8 @@ class Produit extends Model
     {
         return $this->belongsTo('App\Catalogue');
     }
- 
+    public function panier()
+    {
+        return $this->belongsTo('App\Panier');
+    }
 }
