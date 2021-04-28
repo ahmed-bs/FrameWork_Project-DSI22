@@ -19,9 +19,9 @@ class CreatePaiementsTable extends Migration
             $table->string('numero_montant');
             $table->date('date_paiement');
             $table->date('date_expiration');
-            //$table->integer('commande_id')->unsigned();
+            $table->integer('commande_id')->unsigned();
             $table->timestamps();
-            //$table->foreign('commande_id')->references('id')->on('commandes')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('commande_id')->references('id')->on('commandes')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
