@@ -17,13 +17,11 @@ class CreateCommandesTable extends Migration
             $table->increments('id');
             $table->date('date_commande');
             $table->integer('num_commande');
-            $table->date('livraison_commande');
-            $table->float('total_commande');
-            $table->float('prix_commande');
-            $table->float('description_commande');
-            $table->integer('paniers_id')->unsigned();
+            $table->double('prix_commande');
+            $table->string('description_commande');
+            $table->integer('panier_id')->unsigned();
             $table->timestamps();
-            $table->foreign('paniers_id')->references('id')->on('paniers')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('panier_id')->references('id')->on('paniers')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 

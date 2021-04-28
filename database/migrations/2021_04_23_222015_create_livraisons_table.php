@@ -17,9 +17,9 @@ class CreateLivraisonsTable extends Migration
             $table->increments('id');
             $table->date('date_livraison');
             $table->string('description');
-            $table->integer('commandes_id')->unsigned();
+            $table->integer('commande_id')->unsigned();
             $table->timestamps();
-            $table->foreign('commandes_id')->references('id')->on('commandes')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('commande_id')->references('id')->on('commandes')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 

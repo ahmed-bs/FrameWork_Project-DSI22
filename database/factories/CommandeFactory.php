@@ -1,0 +1,18 @@
+<?php
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use App\Commande;
+use Faker\Generator as Faker;
+
+use App\Panier;
+
+$factory->define(Commande::class, function (Faker $faker) {
+    return [
+        'date_commande'=>now(),
+        'num_commande'=> $faker->randomNumber(),
+        'prix_commande'=> $faker->randomFloat(3),
+        'description_commande'=> $faker->sentence,
+        'panier_id'=> Panier::get('id')->random()
+    ];
+});
