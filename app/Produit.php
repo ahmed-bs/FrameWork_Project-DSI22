@@ -12,6 +12,6 @@ class Produit extends Model
     }
     public function panier()
     {
-        return $this->belongsTo('App\Panier');
+        return $this->hasMany('App\Panier');
     }
 }

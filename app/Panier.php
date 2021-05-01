@@ -12,10 +12,10 @@ class Panier extends Model
     }
     public function commande()
     {
-        return $this->belongsTo('App\Commande');
+        return $this->hasOne('App\Commande');
     }
     public function produit()
     {
-        return $this->hasMany('App\Produit');
+        return $this->belongsTo('App\Produit');
     }
 }
