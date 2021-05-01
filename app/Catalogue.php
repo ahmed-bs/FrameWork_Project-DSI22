@@ -5,8 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Catalogue extends Model
-                        {
-    public function products(){
+{
+    public function products()
+    {
         return $this->hasMany('App\Produit');
     }
 }

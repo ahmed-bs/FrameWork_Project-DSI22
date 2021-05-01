@@ -9,7 +9,7 @@ use App\Commande;
 
 $factory->define(Livraison::class, function (Faker $faker) {
     return [
-        'date_livraison'=>now(),
+        'date_livraison'=>$faker->date,
         'description'=> $faker->sentence,
         'commande_id'=> Commande::get('id')->random()
 
