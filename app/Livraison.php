@@ -8,6 +8,6 @@ class Livraison extends Model
 {
     public function Commande()
     {
-        return $this->hasMany('App\Commande');
+        return $this->belongsTo('App\Commande');
     }
 }
