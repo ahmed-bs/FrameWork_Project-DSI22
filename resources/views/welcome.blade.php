@@ -6,9 +6,9 @@
     <div class="col-lg-3">
         <h1 class="my-4">Catégorie</h1>
         <div class="list-group">
-            <a class="list-group-item" href="#!">Category 1</a>
-            <a class="list-group-item" href="#!">Category 2</a>
-            <a class="list-group-item" href="#!">Category 3</a>
+        @foreach ($catalogues as $catalogue)
+            <a class="list-group-item" href="#!">{{ $catalogue->name }}</a>
+            @endforeach
         </div>
     </div>
     <div class="col-lg-9">

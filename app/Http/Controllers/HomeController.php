@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Catalogue;
 class HomeController extends Controller
 {
     /**
@@ -27,6 +27,10 @@ class HomeController extends Controller
     }
     public function welcome()
     {
-        return view('welcome');
+        $catalogue = Catalogue::get('name');
+        return view('welcome',[
+            'catalogues'=> $catalogue
+        ]);
+        
     }
 }
