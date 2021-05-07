@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Catalogue;
+use App\Produit;
 class HomeController extends Controller
 {
     /**
@@ -28,8 +29,10 @@ class HomeController extends Controller
     public function welcome()
     {
         $catalogue = Catalogue::get('name');
+        $produits= Produit::inRandomOrder()->limit(6)->get();
         return view('welcome',[
-            'catalogues'=> $catalogue
+            'catalogues'=> $catalogue, 
+            'produits'=>$produits
         ]);
         
     }
