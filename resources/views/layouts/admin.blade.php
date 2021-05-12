@@ -9,12 +9,9 @@
     <meta name="generator" content="Hugo 0.83.1">
     <title>Dashboard Template · Bootstrap v5.0</title>
 
-  
+
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
 
-
-    
 
     <!-- Bootstrap core CSS -->
 <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
@@ -27,22 +24,28 @@
 <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#7952b3">
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
   </head>
   <body>
     
-<header >
 
-@include('layouts.navbar') 
+    @include('layouts.navbar') 
+     
+ 
+    <!-- Navbar -->
+    <main class="py-4">
+            @yield('content')
 
-</header>
+        </main>
+    <br>
+<br>
 
 <div class="container-fluid">
   <div class="row">
@@ -278,6 +281,8 @@
 
         <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-        <script src="{{ asset('js/admin.js') }}"></script>
+ 
+
+<script src="{{ asset('js/admin.js') }}"></script>
   </body>
 </html>
