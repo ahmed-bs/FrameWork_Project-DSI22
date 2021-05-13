@@ -1,5 +1,5 @@
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-md navbar-light fixed-top scrolling-navbar bg-light">
+    
 
 <a class="navbar-brand" href="#!">
   <img src="https://www.pngitem.com/pimgs/m/6-69782_fashion-model-silhouette-silhouette-fashion-designer-logo-hd.png" height="60" alt="">
@@ -61,19 +61,39 @@
         Contact
       </a>
     </li>
-    <li class="nav-item">
-      <a href="#!" class="nav-link waves-effect">
-        Sign in
-      </a>
-    </li>
-    <li class="nav-item pl-2 mb-2 mb-md-0">
-      <a href="#!" type="button"
-        class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Sign up</a>
-    </li>
+   <!-- Authentication Links -->
+   @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                    
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
   </ul>
 
 </div>
 
 <!-- Links -->
 
-</nav>

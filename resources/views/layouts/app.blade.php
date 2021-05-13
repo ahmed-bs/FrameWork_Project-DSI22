@@ -22,9 +22,9 @@
 
 </head>
 <body>
-    <div id="app">
+<nav class="navbar navbar-expand-md navbar-light fixed-top scrolling-navbar bg-light">
     @include('layouts.navbar') 
-     
+     </nav>
 
 <br>
 <br>
