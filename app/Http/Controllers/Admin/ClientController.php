@@ -25,7 +25,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+       return view('admin.client.create');
     }
 
     /**
@@ -36,7 +36,18 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+          $validatedData = $request->validate([
+            'nom' => 'required|min:2',
+            'prenom' => 'required|min:2',
+            'telephone' => 'required|min:11|numeric',
+            'email' => 'required|email',
+            'adresse' => 'required',
+        ]);
+     
+        $client = Client::create($validatedData);
+
+        return redirect()->route('clients.show', $client);
     }
 
     /**

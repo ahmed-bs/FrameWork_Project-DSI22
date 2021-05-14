@@ -1,8 +1,10 @@
 @extends('layouts.admin')
 
 @section('main')
-
+<a href="{{ route('clients.create') }}" class="btn btn-outline-primary float-right"><i class="fas fa-user-plus"></i> Add new client</a>
     <h3><i class="fas fa-users"></i> Clients list</h3>
+ <br>
+
     <table class="table">
         <thead>
           <tr>
