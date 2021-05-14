@@ -1,9 +1,9 @@
       <!-- Navbar -->
-    
+      <img src="https://www.pngitem.com/pimgs/m/6-69782_fashion-model-silhouette-silhouette-fashion-designer-logo-hd.png" height="60" alt="">
 
-<a class="navbar-brand" href="#!">
-  <img src="https://www.pngitem.com/pimgs/m/6-69782_fashion-model-silhouette-silhouette-fashion-designer-logo-hd.png" height="60" alt="">
-</a>
+<div class="bg-info container text-center"  >
+  
+   
 
 <!-- Collapse button -->
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav1"
@@ -34,12 +34,7 @@
 
   <!-- Right -->
   <ul class="navbar-nav ml-auto  ">
-    <li class="nav-item">
-      <a href="#!" class="nav-link navbar-link-2 waves-effect">
-        <span class="badge badge-danger">1</span>
-        <i class="fas fa-shopping-cart pl-0"></i>
-      </a>
-    </li>
+   
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink3" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="true">
@@ -91,9 +86,16 @@
                         </div>
                     </li>
                 @endguest
+                <li class="nav-item">
+                  <a href="#!" class="nav-link navbar-link-2 waves-effect">
+                    <span class="badge badge-danger">1</span>
+                    <i class="fas fa-shopping-cart pl-0"></i>
+                  </a>
+                </li>
+               
   </ul>
 
-</div>
 
+</div></div>
 <!-- Links -->
 
