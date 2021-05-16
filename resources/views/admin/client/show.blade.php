@@ -11,9 +11,10 @@
             <li class="list-group-item"> <i class="fas fa-map-marker"></i>{{ $client->adresse }}</li>
         </ul>
         <hr>
-        <a href="#" class="btn btn-warning" title="Edit user {{ $client->nom.' '.$client->prenom  }}"><i class="fas fa-user-check"></i></a>
+        <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-warning" title="Edit client{{ $client->nom.' '.$client->prenom  }}">
+            <i class="fas fa-user-check"></i></a>
         <a href="#" class="btn btn-danger" title="Delete user {{ $client->nom.' '.$client->prenom }}"><i class="fas fa-user-check"></i></a>
     </div>
   </div>
-   
+
 @endsection

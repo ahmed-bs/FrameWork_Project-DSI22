@@ -11,7 +11,7 @@
             <th scope="col"><i class="fas fa-key"></i> Key</th>
             <th scope="col"><i class="fas fa-user-check"></i>Name</th>
             <th scope="col"><i class="fas fa-envelope-open-text"></i> Email</th>
-           
+
             <th scope="col"><i class="fas fa-cogs"></i> Opérations</th>
           </tr>
         </thead>
@@ -23,7 +23,8 @@
               <td>{{ $client->email }}</td>
               <td>
                   <a href="{{ route('clients.show', ['client' => $client->id]) }}" class="btn btn-info" title="Show details about {{ $client->nom.' '.$client->prenom }}"><i class="fas fa-user-tag"></i></a>
-                  <a href="#" class="btn btn-warning" title="Edit user {{ $client->nom.' '.$client->nom  }}"><i class="fas fa-user-check"></i></a>
+                  <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-warning" title="Edit client{{ $client->nom.' '.$client->prenom  }}">
+                    <i class="fas fa-user-check"></i></a>
                   <a href="#" class="btn btn-danger" title="Delete user {{ $client->nom.' '.$client->nom  }}"><i class="fas fa-user-check"></i></a>
               </td>
             </tr>
@@ -33,5 +34,5 @@
       <div class="mx-auto"  style="width: 200px;">
         {{ $clients->links() }}
     </div>
-  
+
 @endsection

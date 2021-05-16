@@ -36,20 +36,13 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        
-          $validatedData = $request->validate([
-            'nom' => 'required|min:2',
-            'prenom' => 'required|min:2',
-            'telephone' => 'required|min:11|numeric',
-            'email' => 'required|email',
-            'adresse' => 'required',
-        ]);
-     
+
+          $validatedData = $request->validate($this->validationRules());
+
         $client = Client::create($validatedData);
 
         return redirect()->route('clients.show', $client);
     }
-
     /**
      * Display the specified resource.
      *
@@ -69,7 +62,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('admin.client.edit', ['client' => $client]);
     }
 
     /**
@@ -81,7 +74,11 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $validatedData = $request->validate($this->validationRules());
+
+        $client =update($validatedData);
+
+        return redirect()->route('clients.show', $client);
     }
 
     /**
@@ -93,5 +90,15 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         //
+    }
+    private function validationRules()
+    {
+        return [
+           'nom' => 'required|min:2',
+            'prenom' => 'required|min:2',
+            'telephone' => 'required|min:11|numeric',
+            'email' => 'required|email',
+            'adresse' => 'required',
+        ];
     }
 }
