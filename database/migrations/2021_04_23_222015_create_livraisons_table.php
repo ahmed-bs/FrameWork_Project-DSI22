@@ -19,7 +19,7 @@ class CreateLivraisonsTable extends Migration
             $table->string('description');
             $table->integer('commande_id')->unsigned();
             $table->timestamps();
-            $table->foreign('commande_id')->references('id')->on('commandes')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('commande_id')->references('id')->on('commandes')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

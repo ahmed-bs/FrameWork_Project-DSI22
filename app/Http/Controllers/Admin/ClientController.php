@@ -41,7 +41,7 @@ class ClientController extends Controller
 
         $client = Client::create($validatedData);
 
-        return redirect()->route('clients.show', $client);
+        return redirect()->route('clients.show', $client)->with('storeClient', "client has been added successfuly");
     }
     /**
      * Display the specified resource.
@@ -78,7 +78,7 @@ class ClientController extends Controller
 
         $client->update($validatedData);
       
-        return redirect()->route('clients.show', $client);
+        return redirect()->route('clients.show', $client)->with('updateClient', "client has been updated successfuly");
     }
 
     /**
@@ -90,6 +90,8 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         //
+        $client->delete();
+        return redirect()->route('clients.index')->with('deleteClient', "client has been deleted successfuly");
     }
     private function validationRules()
     {
