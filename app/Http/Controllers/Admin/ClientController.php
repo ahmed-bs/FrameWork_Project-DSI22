@@ -76,8 +76,8 @@ class ClientController extends Controller
     {
         $validatedData = $request->validate($this->validationRules());
 
-        $client =update($validatedData);
-
+        $client->update($validatedData);
+      
         return redirect()->route('clients.show', $client);
     }
 
