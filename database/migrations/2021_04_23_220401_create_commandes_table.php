@@ -21,7 +21,7 @@ class CreateCommandesTable extends Migration
             $table->string('description_commande');
             $table->integer('panier_id')->unsigned();
             $table->timestamps();
-            $table->foreign('panier_id')->references('id')->on('paniers')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('panier_id')->references('id')->on('paniers')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

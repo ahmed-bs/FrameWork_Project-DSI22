@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 
 @section('main')
+@if (session('deleteClient'))
+    <div class="alert alert-dismissible alert-success fade show" role="alert">
+        {{ session('deleteClient') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
 <a href="{{ route('clients.create') }}" class="btn btn-outline-primary float-right"><i class="fas fa-user-plus"></i> Add new client</a>
 <div class="text-info"><h3><i class="fas fa-users"></i> Clients list</h3></div>
  <br>
@@ -22,10 +30,14 @@
               <td>{{ $client->nom.' '.$client->prenom }}</td>
               <td>{{ $client->email }}</td>
               <td>
-                  <a href="{{ route('clients.show', ['client' => $client->id]) }}" class="btn btn-info" title="Show details about {{ $client->nom.' '.$client->prenom }}"><i class="fas fa-user-tag"></i></a>
-                  <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-warning" title="Edit client{{ $client->nom.' '.$client->prenom  }}">
+                  <a href="{{ route('clients.show', ['client' => $client->id]) }}" class="btn btn-info" title="Show details about {{ $client->nom.' '.$client->prenom }}">
+                  <i class="fas fa-user-tag"></i></a>
+                  <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-warning" title="Edit client{{ $client->nom.' '.$client->prenom  }}" >
                     <i class="fas fa-user-check"></i></a>
-                  <a href="#" class="btn btn-danger" title="Delete user {{ $client->nom.' '.$client->nom  }}"><i class="fas fa-user-check"></i></a>
+                    <a href="#" class="btn btn-danger" title="Delete client {{ $client->nom.' '.$client->prenom  }}"
+                        onclick="event.preventDefault(); document.querySelector('#delete-client-form').submit()"
+                        ><i class="fas fa-user-slash"></i></a>
+                    <form action="{{ route('clients.destroy', ['client' => $client->id]) }}" method="post" id="delete-client-form">@csrf @method('DELETE')</form>
               </td>
             </tr>
             @endforeach

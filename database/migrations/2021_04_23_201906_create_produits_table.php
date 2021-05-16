@@ -21,7 +21,7 @@ class CreateProduitsTable extends Migration
             $table->integer('catalogue_id')->unsigned();
             $table->string('pics');
             $table->timestamps();
-            $table->foreign('catalogue_id')->references('id')->on('catalogues')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('catalogue_id')->references('id')->on('catalogues')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
