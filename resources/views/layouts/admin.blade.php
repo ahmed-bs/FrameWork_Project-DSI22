@@ -73,9 +73,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/livraisons">
               <span data-feather="bar-chart-2"></span>
-              Reports
+              Livraisons
             </a>
           </li>
           <li class="nav-item">
