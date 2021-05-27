@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Commande extends Model
 {
+    protected $guarded = [];
     public function Panier()
     {
         return $this->belongsTo('App\Panier');

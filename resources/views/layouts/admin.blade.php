@@ -73,9 +73,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/catalogues">
               <span data-feather="bar-chart-2"></span>
-              Reports
+              Catalogues
             </a>
           </li>
           <li class="nav-item">
