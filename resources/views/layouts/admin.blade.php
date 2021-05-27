@@ -61,9 +61,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/produits">
               <span data-feather="shopping-cart"></span>
-              Products
+              Produits
             </a>
           </li>
           <li class="nav-item">
@@ -73,15 +73,17 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/livraisons">
+
+            <a class="nav-link" href="/catalogues">
               <span data-feather="bar-chart-2"></span>
-              Livraisons
+              Catalogues
+
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/livraisons">
               <span data-feather="layers"></span>
-              Integrations
+             Livraisons
             </a>
           </li>
         </ul>

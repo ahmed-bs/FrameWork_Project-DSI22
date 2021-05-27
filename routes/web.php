@@ -24,5 +24,9 @@ Route::get('/admin-dashboard', function () {
 })->middleware('auth', 'admin');
 
 Route::resource('clients', 'Admin\ClientController');
+Route::resource('produits', 'Admin\ProduitController');
+
+
+Route::resource('catalogues', 'Admin\CatalogueController');
 
 Route::resource('livraisons', 'Admin\LivraisonController');
