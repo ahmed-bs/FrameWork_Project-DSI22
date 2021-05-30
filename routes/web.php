@@ -30,3 +30,5 @@ Route::resource('produits', 'Admin\ProduitController');
 Route::resource('catalogues', 'Admin\CatalogueController');
 
 Route::resource('livraisons', 'Admin\LivraisonController');
+
+Route::resource('commandes', 'Admin\CommandeController');

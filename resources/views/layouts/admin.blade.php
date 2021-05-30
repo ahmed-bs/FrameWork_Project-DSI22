@@ -34,11 +34,11 @@
 
   </head>
   <body>
-    
+
   <nav class="navbar navbar-expand-md navbar-light fixed-top scrolling-navbar bg-light">
-    @include('layouts.navbar') 
+    @include('layouts.navbar')
     </nav>
- 
+
     <!-- Navbar -->
 <br><br><br><br>
 
@@ -55,9 +55,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/commandes">
               <span data-feather="file"></span>
-              Orders
+              commande
             </a>
           </li>
           <li class="nav-item">
@@ -136,7 +136,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
- 
+
 
 <script src="{{ asset('js/admin.js') }}"></script>
   </body>
