@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Commande extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'panier_id' => true,
+    ];
     protected $guarded = [];
     public function Panier()
     {

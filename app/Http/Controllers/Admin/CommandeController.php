@@ -63,7 +63,7 @@ class CommandeController extends Controller
      */
     public function edit(Commande $commande)
     {
-        //
+        return view('admin.commande.edit', ['commande' => $commande]);
     }
 
     /**
@@ -75,7 +75,10 @@ class CommandeController extends Controller
      */
     public function update(Request $request, Commande $commande)
     {
-        //
+        $validatedData = $request->validate($this->validationRules());
+
+        $commande->update($validatedData);
+        return redirect()->route('commandes.show', $commande)->with('updateCommande', "commande has been updated successfuly");
     }
 
     /**
@@ -86,7 +89,8 @@ class CommandeController extends Controller
      */
     public function destroy(Commande $commande)
     {
-        //
+        $commande->delete();
+        return redirect()->route('commandes.index')->with('deleteCommande', "commande has been deleted successfuly");
     }
     private function validationRules()
     {
