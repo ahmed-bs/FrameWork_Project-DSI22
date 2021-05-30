@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Commande;
 use App\Http\Controllers\Controller;
+use DateTime;
 use Illuminate\Http\Request;
 
 class CommandeController extends Controller
@@ -25,7 +26,7 @@ class CommandeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.commande.create');
     }
 
     /**
@@ -95,9 +96,9 @@ class CommandeController extends Controller
     private function validationRules()
     {
         return [
-           'date_commande' => 'required',
-            'num_commande' => 'required',
-                    'prix_commande' => 'required',
+           'date_commande' => 'required|date_format:Y-m-d',
+            'num_commande' => 'required|min:11|numeric',
+            'prix_commande' => 'required',
             'description_commande' => 'required',
         ];
     }

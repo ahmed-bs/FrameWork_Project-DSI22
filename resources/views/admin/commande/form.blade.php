@@ -15,6 +15,7 @@
                       </div>
                 </div>
             </div>
+            <div class="row">
               <div class="col">
                     <div class="form-group">
                         <label for="prix_commande">prix commande</label>
@@ -22,6 +23,8 @@
                         @error('prix_commande')<div class="text-danger">{{ $message }}</div>@enderror
                       </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col">
                     <div class="form-group">
                         <label for="description_commande">description commande</label>
@@ -34,4 +37,4 @@
                 <div class="col"><button type="submit" class="btn btn-block btn-outline-primary"><i class="fas fa-save"></i> Save</button></div>
                 <div class="col"><button type="reset" class="btn btn-block btn-outline-secondary"><i class="fas fa-window-close"></i> Cancel</button></div>
             </div>
-Aa
+        </div>

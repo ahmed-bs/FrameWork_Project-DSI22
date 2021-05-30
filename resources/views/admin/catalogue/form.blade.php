@@ -3,7 +3,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="name">nom</label>
-                        <input type="text" name="name" id="name" value="{{ $catalogue->name ?? old('name') }}" class="form-control @error('description') is-invalid @enderror" placeholder="nom goes here">
+                        <input type="text" name="name" id="name" value="{{ $catalogue->name ?? old('name') }}" class="form-control @error('name ') is-invalid @enderror" placeholder="nom goes here">
                         @error('name')<div class="text-danger">{{ $message }}</div>@enderror
                       </div>
                 </div>
