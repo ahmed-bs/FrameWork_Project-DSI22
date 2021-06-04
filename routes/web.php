@@ -32,3 +32,4 @@ Route::resource('catalogues', 'Admin\CatalogueController');
 Route::resource('livraisons', 'Admin\LivraisonController');
 
 Route::resource('commandes', 'Admin\CommandeController');
+Route::resource('paiements', 'Admin\PaiementController');
