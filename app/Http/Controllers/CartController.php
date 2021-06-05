@@ -16,7 +16,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        return view('cart.index');
     }
 
     /**
@@ -37,9 +37,20 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->id, $request->produits_nom, 1, $request->price);
+        $duplicata = Cart::search(function ($cartItem, $rowId) use ($request) {
+            return $cartItem->id == $request->id;
+        });
 
-   
+        if ($duplicata->isNotEmpty()) {
+            return redirect()->route('welcome')->with('success', 'Le produit a déjà été ajouté.');
+        }
+
+        $produit = produit::find($request->id);
+
+        Cart::add($request->id, $request->produits_nom, 1, $request->price)
+        ->associate('App\Produit');
+
+    return redirect()->route('welcome')->with('success', 'Le produit a bien été ajouté.');
     }
 
     /**
@@ -82,8 +93,10 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($rowId)
     {
-        //
+        Cart::remove($rowId);
+
+        return back()->with('success', 'Le produit a été supprimé.');
     }
 }

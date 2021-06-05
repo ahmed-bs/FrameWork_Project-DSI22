@@ -15,10 +15,10 @@
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">dabchy</a>
+          <a class="nav-link active" aria-current="page" href="/">dabchy</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="/">home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
@@ -87,9 +87,9 @@
                     </li>
                 @endguest
                 <li class="nav-item">
-                  <a href="#!" class="nav-link navbar-link-2 waves-effect">
-                    <span class="badge badge-danger">1</span>
-                    <i class="fas fa-shopping-cart pl-0"></i>
+                  <a href="{{ route('cart.index') }}" class="nav-link navbar-link-2 waves-effect">
+                    <span class="badge badge-danger">{{Cart::count()}}</span>
+                    <i  href="" class="fas fa-shopping-cart pl-0"></i>
                   </a>
                 </li>
                

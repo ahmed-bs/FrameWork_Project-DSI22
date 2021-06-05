@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Produit;
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
 class ProduitController extends Controller
 {
     /**
@@ -14,6 +15,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
+        dd(Cart::content());
         return view('admin.produit.index', ['produits' => Produit::paginate(5)]);
     }
 
