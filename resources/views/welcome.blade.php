@@ -15,12 +15,13 @@
             @endforeach
         </div>
     </div>
+   
+    <div class="col-lg-9">
     @if (session('success'))
       <div class="alert alert-success">
           {{ session('success') }}
       </div>
   @endif
-    <div class="col-lg-9">
         <div class="carousel slide my-4" id="carouselExampleIndicators" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li class="active" data-target="#carouselExampleIndicators" data-slide-to="0"></li>
@@ -53,7 +54,7 @@
                         <form action="{{ route('cart.store') }}"method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{ $produit->id }}">
-                    <input type="hidden" name="title" value="{{ $produit->produits_nom }}">
+                    <input type="hidden" name="produits_nom" value="{{ $produit->produits_nom }}">
                   <input type="hidden" name="price" value="{{ $produit->price }}">
                         <button type="submit" class="btn btn-dark">ajouter au panier</button>
                         </form>

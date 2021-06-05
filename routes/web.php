@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@welcome');
+Route::get('/', 'HomeController@welcome')->name('welcome');
 
 
 Auth::routes();
@@ -36,3 +36,9 @@ Route::resource('paiements', 'Admin\PaiementController');
 Route::resource('paniers', 'Admin\PanierController');
 
 Route::post('/panier/ajouter', 'CartController@store')->name('cart.store');
+Route::get('/panier', 'CartController@index')->name('cart.index');
+Route::delete('/panier/{rowId}', 'CartController@destroy')->name('cart.destroy');
+
+Route::get('/videpanier', function () {
+    Cart::destroy();
+});
