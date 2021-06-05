@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
+    
 <div class="row">
     <div class="col-lg-3">
+        
+  
         <h1 class="my-4">Catégorie</h1>
         <div class="list-group">
         @foreach ($catalogues as $catalogue)

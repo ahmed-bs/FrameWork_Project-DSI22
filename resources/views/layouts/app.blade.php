@@ -38,6 +38,7 @@
   <!-- Grid container -->
   <div class="col-auto">
     <p class="pt-2">
+    <h5>  © 2021 Dabchy</h5>
       <strong>  Pour ne rien rater de Dabchy !</strong>
     </p>
   </div>

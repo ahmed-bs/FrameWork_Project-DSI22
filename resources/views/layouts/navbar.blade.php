@@ -1,7 +1,7 @@
       <!-- Navbar -->
       <img src="https://www.pngitem.com/pimgs/m/6-69782_fashion-model-silhouette-silhouette-fashion-designer-logo-hd.png" height="60" alt="">
 
-<div class="bg-info container text-center"  >
+<div class="p-2 mb-2 bg-info text-white container"  >
   
    
 
@@ -15,16 +15,18 @@
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">dabchy</a>
+
+          <a class="nav-link active" aria-current="page" href="#">bienvenue dans dabchy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+          
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/">home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#"></a>
         </li>
        </ul>
 <!-- Breadcrumbs -->
@@ -35,21 +37,12 @@
   <!-- Right -->
   <ul class="navbar-nav ml-auto  ">
    
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink3" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="true">
-        <i class="fas fa-flag-usa m-0"></i>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="#!">Action</a>
-        <a class="dropdown-item" href="#!">Another action</a>
-        <a class="dropdown-item" href="#!">Something else here</a>
-      </div>
-    </li>
+  
     <li class="nav-item">
-      <a href="#!" class="nav-link waves-effect">
-        Shop
-      </a>
+      
+    <a href="#" class="nav-link waves-effect"><i class="fas fa-plus"></i>  je vends un article</a>
+    <div class="col-lg-3">
+
     </li>
     <li class="nav-item">
       <a href="#!" class="nav-link waves-effect">
