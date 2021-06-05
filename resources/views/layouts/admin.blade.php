@@ -73,6 +73,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/paniers">
+              <span data-feather="users"></span>
+             paniers
+            </a>
+          </li>
+          <li class="nav-item">
 
             <a class="nav-link" href="/catalogues">
               <span data-feather="bar-chart-2"></span>

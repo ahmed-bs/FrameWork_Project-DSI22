@@ -33,3 +33,6 @@ Route::resource('livraisons', 'Admin\LivraisonController');
 
 Route::resource('commandes', 'Admin\CommandeController');
 Route::resource('paiements', 'Admin\PaiementController');
+Route::resource('paniers', 'Admin\PanierController');
+
+Route::post('/panier/ajouter', 'CartController@store')->name('cart.store');
