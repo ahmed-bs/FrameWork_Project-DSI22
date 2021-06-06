@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -80,13 +81,13 @@
                     <div class="p-4">
                         <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
                         <ul class="list-unstyled mb-4">
-                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
-                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
-                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Sous-total </strong><strong>{{Cart::subtotal()}}</strong></li>
+
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>{{Cart::tax()}}</strong></li>
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                            <h5 class="font-weight-bold">$400.00</h5>
+                            <h5 class="font-weight-bold">{{Cart::total() }}</h5>
                         </li>
-                        </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                        </ul><a href="{{route('check.index')}}" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
                     </div>
                     </div>
             </div>
