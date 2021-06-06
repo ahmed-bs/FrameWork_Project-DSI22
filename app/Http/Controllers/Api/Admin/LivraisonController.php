@@ -1,13 +1,11 @@
 <?php
-namespace App\Http\Controllers;
-use Gloudemans\Shoppingcart\Facades\Cart;
-use Stripe\Stripe;
-use Stripe\PaymentIntent;
-use Illuminate\Support\Arr;
+
+namespace App\Http\Controllers\Api\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Livraison;
 use Illuminate\Http\Request;
-
-
-class CheckController extends Controller
+class LivraisonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,28 +14,7 @@ class CheckController extends Controller
      */
     public function index()
     {
-        Stripe::setApiKey('sk_test_GEQCwhRyT9PcK1vju3YcsIEN00gXSsjo1P');
-
-        $intent = PaymentIntent::create([
-            'amount' => round(Cart::total()),
-            'currency' => 'eur',
-        ]);
-
-        return view('checkout.index', [
-            'client_secret' => Arr::get($intent, 'client_secret')
-        ]);
-    }
-
-    /**
-     * Charge the client.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function charge(Request $request)
-    {
-        $data = $request->json()->all();
-
-        return $data['paymentIntent']['amount'];
+        return response()->json(Livraison::all());
     }
 
     /**
@@ -59,18 +36,7 @@ class CheckController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return response()->json(Livraison::find($id));
     }
 
     /**

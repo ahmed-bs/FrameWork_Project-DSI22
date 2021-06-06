@@ -43,4 +43,4 @@ Route::get('/videpanier', function () {
     Cart::destroy();
 });
 Route::get('/paiement', 'CheckController@index')->name('check.index');
-Route::post('/paiement', 'CheckoutController@charge')->name('check.charge');
+Route::post('/paiement', 'CheckController@charge')->name('check.charge');
