@@ -41,6 +41,11 @@ Route::delete('/panier/{rowId}', 'CartController@destroy')->name('cart.destroy')
 
 Route::get('/videpanier', function () {
     Cart::destroy();
+
+});
+Route::get('/paiement', 'CheckController@index')->name('check.index');
+Route::post('/paiement', 'CheckController@charge')->name('check.charge');
+
 });*/
 
 Route::get('/videpanier', function () {
@@ -51,6 +56,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/panier/ajouter', 'CartController@store')->name('cart.store');
     Route::get('/panier', 'CartController@index')->name('cart.index');
     Route::delete('/panier/{rowId}', 'CartController@destroy')->name('cart.destroy');
+
+
+    Route::get('/paiement', 'CheckController@index')->name('check.index');
+    Route::post('/paiement', 'CheckController@charge')->name('check.charge');
 
     Route::middleware('admin')->namespace('Admin')->prefix('admin')->group(function () {
         Route::get('/dashboard', function () {

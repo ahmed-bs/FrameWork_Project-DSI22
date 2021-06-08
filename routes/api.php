@@ -16,7 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::apiResource('admin/commandes', 'Api\Admin\CommandeController');
+Route::apiResource('admin/livraisons', 'Api\Admin\LivraisonController');
+
 Route::apiResource('admin/produits', 'Api\Admin\ProduitController');
 Route::apiResource('admin/catalogues', 'Api\Admin\CatalogueController');
 Route::apiResource('admin/clients', 'Api\Admin\ClientController');
 Route::apiResource('admin/paniers', 'Api\Admin\PanierController');
+
