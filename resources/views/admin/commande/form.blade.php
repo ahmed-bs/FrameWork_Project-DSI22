@@ -32,6 +32,13 @@
                         @error('description_commande')<div class="text-danger">{{ $message }}</div>@enderror
                       </div>
                 </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email">email commande</label>
+                        <input type="text" name="email" id="description_commande"  value="{{$commande->email?? old('email') }}"class="form-control @error('email') is-invalid @enderror" placeholder="email goes here">
+                        @error('email')<div class="text-danger">{{ $message }}</div>@enderror
+                      </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col"><button type="submit" class="btn btn-block btn-outline-primary"><i class="fas fa-save"></i> Save</button></div>

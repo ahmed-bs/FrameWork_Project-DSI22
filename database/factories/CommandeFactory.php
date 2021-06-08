@@ -11,6 +11,7 @@ $factory->define(Commande::class, function (Faker $faker) {
     return [
         'date_commande'=>$faker->date,
         'num_commande'=> $faker->randomNumber(),
+        'email'=> $faker->email,
         'prix_commande'=> $faker->randomFloat(3),
         'description_commande'=> $faker->sentence,
         'panier_id'=> Panier::get('id')->random()
