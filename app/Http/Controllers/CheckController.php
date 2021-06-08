@@ -15,7 +15,9 @@ class CheckController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {if (Cart::count() <= 0) {
+        return redirect()->route('Produit.index');
+    }
         Stripe::setApiKey('sk_test_GEQCwhRyT9PcK1vju3YcsIEN00gXSsjo1P');
 
         $intent = PaymentIntent::create([
@@ -23,8 +25,8 @@ class CheckController extends Controller
             'currency' => 'eur',
         ]);
 
-        return view('checkout.index', [
-            'client_secret' => Arr::get($intent, 'client_secret')
+        return view('check.index', [
+            'clientSecret' => Arr::get($intent, 'clientSecret')
         ]);
     }
 

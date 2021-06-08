@@ -55,45 +55,45 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/commandes">
+            <a class="nav-link" href="{{ route('commandes.index') }}">
               <span data-feather="file"></span>
               commande
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/produits">
+            <a class="nav-link" href="{{ route('produits.index') }}">
               <span data-feather="shopping-cart"></span>
               Produits
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/clients">
+            <a class="nav-link" href="{{ route('clients.index') }}">
               <span data-feather="users"></span>
               Clients
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/paniers">
+            <a class="nav-link" href="{{ route('paniers.index') }}">
               <span data-feather="users"></span>
              paniers
             </a>
           </li>
           <li class="nav-item">
 
-            <a class="nav-link" href="/catalogues">
+            <a class="nav-link" href="{{ route('catalogues.index') }}">
               <span data-feather="bar-chart-2"></span>
               Catalogues
 
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/livraisons">
+            <a class="nav-link" href="{{ route('livraisons.index') }}">
               <span data-feather="layers"></span>
              Livraisons
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/paiements">
+            <a class="nav-link" href="{{ route('paiements.index') }}">
               <span data-feather="layers"></span>
              Paiements
             </a>
