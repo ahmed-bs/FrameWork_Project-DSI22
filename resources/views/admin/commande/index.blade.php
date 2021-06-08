@@ -19,6 +19,7 @@
             <th scope="col"><i class="fas fa-key"></i> Key</th>
             <th scope="col"><i class="fas fa-user-check"></i>date</th>
             <th scope="col"><i class="fas fa-envelope-open-text"></i> numero de commande</th>
+            <th scope="col"><i class="fas fa-envelope-open-text"></i> email</th>
 <th scope="col"><i class="fas fa-user-check"></i>prix</th>
 
             <th scope="col"><i class="fas fa-cogs"></i> Opérations</th>
@@ -30,6 +31,7 @@
               <th scope="row">{{ $key }}</th>
               <td>{{ $commande->date_commande}}</td>
               <td>{{ $commande->num_commande }}</td>
+              <td>{{ $commande->email }}</td>
   <td>{{ $commande->prix_commande }}</td>
               <td>
                   <a href="{{ route('commandes.show', ['commande' => $commande->id]) }}" class="btn btn-info" title="Show details about {{ $commande->date_commande}}">

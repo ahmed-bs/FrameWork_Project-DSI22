@@ -6,7 +6,8 @@ use App\Commande;
 use App\Http\Controllers\Controller;
 use DateTime;
 use Illuminate\Http\Request;
-
+use App\Mail\NewCommande;
+use Illuminate\Support\Facades\Mail;
 class CommandeController extends Controller
 {
     /**
@@ -40,7 +41,7 @@ class CommandeController extends Controller
         $validatedData = $request->validate($this->validationRules());
 
         $commande= Commande::create($validatedData);
-
+        Mail::to($commande->email)->send(new NewCommande($commande));
         return redirect()->route('commandes.show', $commande)->with('storeCommande', "Commande has been added successfuly");
 
     }
@@ -99,6 +100,7 @@ class CommandeController extends Controller
            'date_commande' => 'required|date_format:Y-m-d',
             'num_commande' => 'required|min:11|numeric',
             'prix_commande' => 'required',
+            'email' => 'required',
             'description_commande' => 'required',
         ];
     }
