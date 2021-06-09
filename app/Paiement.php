@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paiement extends Model
 {
-        /**
+        /***
      * The attributes that are mass assignable.
      *
      * @var array
@@ -15,7 +15,7 @@ class Paiement extends Model
         'commande_id' => true,
     ];
 
-    protected $guarded = [];   
+    protected $guarded = [];
     public function Commande()
     {
         return $this->belongsTo('App\Commande');
