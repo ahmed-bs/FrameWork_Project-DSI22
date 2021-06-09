@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Paiement;
 use Illuminate\Http\Request;
-
+use App\Mail\NewPaiement;
+use Illuminate\Support\Facades\Mail;
 class PaiementController extends Controller
 {
     /**
@@ -36,11 +37,11 @@ class PaiementController extends Controller
      */
     public function store(Request $request)
     {
-        
-          $validatedData = $request->validate($this->validationRules());
-     
-        $paiement = Paiement::create($validatedData);
 
+          $validatedData = $request->validate($this->validationRules());
+
+        $paiement = Paiement::create($validatedData);
+        Mail::to($paiement->email)->send(new NewPaiement($paiement));
         return redirect()->route('paiements.show', $paiement);
     }
 
@@ -80,7 +81,7 @@ class PaiementController extends Controller
 
         $paiement->update($validatedData);
                return redirect()->route('paiements.show', $paiement)->with('updatePaiement', "Paiement has been updated successfuly");
-       
+
     }
 
     /**
@@ -101,6 +102,7 @@ class PaiementController extends Controller
             'montant' => 'required',
                     'date_paiement' => 'required',
             'date_expiration' => 'required',
+            'email' => 'required|email',
         ];
     }
 }

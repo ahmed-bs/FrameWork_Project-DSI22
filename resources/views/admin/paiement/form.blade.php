@@ -23,12 +23,19 @@
                         @error('date_paiement')<div class="text-danger">{{ $message }}</div>@enderror
                       </div>
                 </div>
-                
+
                 <div class="col">
                     <div class="form-group">
                         <label for="date_expiration">date expiration</label>
                         <input type="text" name="date_expiration" id="date_expiration"  value="{{$paiement->date_expiration?? old('date_expiration') }}"class="form-control @error('date_expiration') is-invalid @enderror" placeholder="date expiration goes here">
                         @error('date_expiration')<div class="text-danger">{{ $message }}</div>@enderror
+                      </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email">email paiement</label>
+                        <input type="text" name="email" id="paiement"  value="{{$paiement->email?? old('email') }}"class="form-control @error('email') is-invalid @enderror" placeholder="email goes here">
+                        @error('paiement')<div class="text-danger">{{ $message }}</div>@enderror
                       </div>
                 </div>
             </div>

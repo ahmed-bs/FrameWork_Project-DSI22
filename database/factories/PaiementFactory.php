@@ -11,6 +11,7 @@ $factory->define(Paiement::class, function (Faker $faker) {
         'montant'=> $faker->randomFloat(3),
         'date_paiement'=> $faker->date,
         'date_expiration'=> $faker->date,
-        'commande_id'=> Commande::get('id')->random()
+        'commande_id'=> Commande::get('id')->random(),
+        'email'=> $faker->email
     ];
 });
