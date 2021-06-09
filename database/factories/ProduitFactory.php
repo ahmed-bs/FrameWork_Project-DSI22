@@ -12,6 +12,7 @@ $factory->define(Produit::class, function (Faker $faker) {
         'produits_description'=> $faker->sentence,
         'price'=>$faker->randomFloat(3),
         'catalogue_id'=>Catalogue::get('id')->random(),
-        'pics'=>$faker->imageUrl
+        'pics'=>$faker->imageUrl,
+        'email'=> $faker->email,
     ];
 });

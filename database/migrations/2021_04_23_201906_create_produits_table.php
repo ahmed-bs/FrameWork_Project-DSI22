@@ -20,6 +20,7 @@ class CreateProduitsTable extends Migration
             $table->double('price');
             $table->integer('catalogue_id')->unsigned();
             $table->string('pics');
+            $table->string('email');
             $table->timestamps();
             $table->foreign('catalogue_id')->references('id')->on('catalogues')->onDelete('cascade')->onUpdate('cascade');
         });

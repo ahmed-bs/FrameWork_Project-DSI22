@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Produit;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Mail\NewProduit;
+use Illuminate\Support\Facades\Mail;
 class ProduitController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        dd(Cart::content());
+      
         return view('admin.produit.index', ['produits' => Produit::paginate(5)]);
     }
 
@@ -41,7 +43,7 @@ class ProduitController extends Controller
         $validatedData = $request->validate($this->validationRules());
 
         $produit = Produit::create($validatedData);
-
+        Mail::to($produit->email)->send(new NewProduit($produit));
         return redirect()->route('produits.show', $produit)->with('storeProduit', "Produit has been added successfuly");
    
     }
@@ -80,7 +82,7 @@ class ProduitController extends Controller
         $validatedData = $request->validate($this->validationRules());
 
         $produit->update($validatedData);
-      
+  
         return redirect()->route('produits.show', $produit)->with('updateProduit', "Produit has been updated successfuly");
    
     }
@@ -104,7 +106,9 @@ class ProduitController extends Controller
            'produits_nom' => 'required|min:2',
             'pics' => 'required',
             'price' => 'required|min:11|numeric',
-            'produits_description' => 'required'
+            'produits_description' => 'required',
+            'email' => 'required|email'
+        
         ];
     }
 

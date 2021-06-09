@@ -19,7 +19,7 @@
             <th scope="col"><i class="fas fa-key"></i> Key</th>
             <th scope="col"><i class="fas fa-user-check"></i>Name</th>
             <th scope="col"><i class="fas fa-envelope-open-text"></i> Price</th>
-
+            
             <th scope="col"><i class="fas fa-cogs"></i> Opérations</th>
           </tr>
         </thead>
@@ -29,6 +29,7 @@
               <th scope="row">{{ $key }}</th>
               <td>{{ $produit->produits_nom }}</td>
               <td>{{ $produit->price }}</td>
+       
               <td>
                   <a href="{{ route('produits.show', ['produit' => $produit->id]) }}" class="btn btn-info" title="Show details about {{ $produit->nom.' '.$produit->prenom }}">
                   <i class="fas fa-user-tag"></i></a>
