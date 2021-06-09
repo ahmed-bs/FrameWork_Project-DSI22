@@ -23,4 +23,4 @@ Route::apiResource('admin/produits', 'Api\Admin\ProduitController');
 Route::apiResource('admin/catalogues', 'Api\Admin\CatalogueController');
 Route::apiResource('admin/clients', 'Api\Admin\ClientController');
 Route::apiResource('admin/paniers', 'Api\Admin\PanierController');
-
+Route::apiResource('admin/paiements', 'Api\Admin\PaiementController');
