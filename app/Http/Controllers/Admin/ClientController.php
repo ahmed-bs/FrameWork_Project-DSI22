@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Mail\NewClient;
+use Illuminate\Support\Facades\Mail;
 class ClientController extends Controller
 {
     /**
@@ -36,11 +37,11 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-
+        
           $validatedData = $request->validate($this->validationRules());
 
         $client = Client::create($validatedData);
-
+        Mail::to($client->email)->send(new NewClient($client));
         return redirect()->route('clients.show', $client)->with('storeClient', "client has been added successfuly");
     }
     /**
