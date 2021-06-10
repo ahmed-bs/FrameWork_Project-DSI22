@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    @yield('extra-meta')
     <title>{{ config('', 'dabchy') }}</title>
 
     <!-- Scripts -->

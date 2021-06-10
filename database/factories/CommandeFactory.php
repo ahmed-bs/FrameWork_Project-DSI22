@@ -13,6 +13,8 @@ $factory->define(Commande::class, function (Faker $faker) {
         'num_commande'=> $faker->randomNumber(),
         'email'=> $faker->email,
         'prix_commande'=> $faker->randomFloat(3),
+        'amount'=> $faker->randomNumber(),
+        'products'=> $faker->sentence,
         'description_commande'=> $faker->sentence,
         'panier_id'=> Panier::get('id')->random()
     ];

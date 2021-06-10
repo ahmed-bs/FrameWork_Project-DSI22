@@ -60,7 +60,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/paiement', 'CheckController@index')->name('check.index');
     Route::post('/paiement', 'CheckController@charge')->name('check.charge');
-
+    Route::post('/paiement', 'CheckController@store')->name('check.store');
+    Route::get('/merci', 'CheckController@thankyou')->name('check.thankyou');
     Route::middleware('admin')->namespace('Admin')->prefix('admin')->group(function () {
         Route::get('/dashboard', function () {
             return view('admin.dashboard');

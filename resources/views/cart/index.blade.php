@@ -8,6 +8,8 @@
 @if (Cart::count() > 0)
 <div class="px-4 px-lg-0">
     <div class="pb-5">
+       
+     
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
@@ -96,7 +98,7 @@
 </div>
 @else
     <div class="col-md-12">
-        <p>Votre panier est vide.</p>
+        <div class="alert alert-info">Votre panier est vide.</div>
     </div>
 @endif
 @endsection
