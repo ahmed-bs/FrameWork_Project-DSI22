@@ -76,7 +76,7 @@ class CheckController extends Controller
 
     public function thankyou()
     {
-        
-        return Session::has('success') ? view('check.thankyou') : redirect()->route('check.thankyou');
+        return view('check.thankyou');
+     //   return Session::has('success') ? view('check.thankyou') : redirect()->route('check.thankyou');
     }
 }
