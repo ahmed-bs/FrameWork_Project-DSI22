@@ -20,7 +20,8 @@ class CreateCommandesTable extends Migration
             $table->string('email');
             $table->double('prix_commande');
             $table->string('description_commande');
-          
+            $table->integer('amount');
+            $table->text('products');
             $table->integer('panier_id')->unsigned();
             $table->timestamps();
             $table->foreign('panier_id')->references('id')->on('paniers')->onDelete('cascade')->onUpdate('cascade');

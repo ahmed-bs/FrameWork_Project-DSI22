@@ -9,6 +9,8 @@
         </button>
     </div>
 @endif
+<br>
+<br>
 @if (session('updateProduit'))
     <div class="alert alert-dismissible alert-success fade show" role="alert">
         {{ session('updateProduit') }}

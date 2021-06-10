@@ -100,6 +100,8 @@ class CommandeController extends Controller
            'date_commande' => 'required|date_format:Y-m-d',
             'num_commande' => 'required|min:11|numeric',
             'prix_commande' => 'required',
+            'amount' => 'required',
+            'products' => 'required',
             'email' => 'required',
             'description_commande' => 'required',
         ];

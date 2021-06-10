@@ -1,12 +1,14 @@
 <?php
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Session;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Stripe\Stripe;
 use Stripe\PaymentIntent;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
-
-
+use App\Commande;
+use App\Produit;
+use DateTime;
 class CheckController extends Controller
 {
     /**
@@ -14,15 +16,16 @@ class CheckController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {if (Cart::count() <= 0) {
-        return redirect()->route('Produit.index');
+    public function index(){
+        if (Cart::count() <= 0) {
+        return redirect()->route('produit.index');
     }
-        Stripe::setApiKey('sk_test_GEQCwhRyT9PcK1vju3YcsIEN00gXSsjo1P');
+
+    Stripe::setApiKey('sk_test_3WteeitM6Wi4AK3SdJzBrm7300qGrAamxX');
 
         $intent = PaymentIntent::create([
             'amount' => round(Cart::total()),
-            'currency' => 'eur',
+            'currency' => 'eur'
         ]);
 
         return view('check.index', [
@@ -30,71 +33,50 @@ class CheckController extends Controller
         ]);
     }
 
-    /**
+    /**********
      * Charge the client.
      *
      * @return \Illuminate\Http\Response
      */
-    public function charge(Request $request)
+    public function store(Request $request)
     {
         $data = $request->json()->all();
 
-        return $data['paymentIntent']['amount'];
+        $commande = new Commande();
+
+        $commande->id = $data['paymentIntent']['id'];
+        $commande->amount = $data['paymentIntent']['amount'];
+
+        $commande->date_commande = (new DateTime())
+            ->setTimestamp($data['paymentIntent']['created'])
+            ->format('Y-m-d H:i:s');
+
+        $products = [];
+        $i = 0;
+
+        foreach (Cart::content() as $produit) {
+            $produits['produit' . $i][] = $produit->model->produits_nom;
+            $produits['produit' . $i][] = $produit->model->price;
+    
+            $i++;
+        }
+
+        $commande->produits = serialize($produits);
+        $commande->num_commande = 15;
+        $commande->save();
+
+        if ($data['paymentIntent']['status'] === 'succeeded') {
+            Cart::destroy();
+            Session::flash('success', 'Votre commande a été traitée avec succès.');
+            return response()->json(['success' => 'Payment Intent Succeeded']);
+        } else {
+            return response()->json(['error' => 'Payment Intent Not Succeeded']);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function thankyou()
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        
+        return Session::has('success') ? view('check.thankyou') : redirect()->route('check.thankyou');
     }
 }

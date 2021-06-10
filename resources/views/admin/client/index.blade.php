@@ -9,6 +9,8 @@
         </button>
     </div>
 @endif
+<br>
+<br>
 <a href="{{ route('clients.create') }}" class="btn btn-outline-primary float-right"><i class="fas fa-user-plus"></i> Add new client</a>
 <div class="text-info"><h3><i class="fas fa-users"></i> Clients list</h3></div>
  <br>

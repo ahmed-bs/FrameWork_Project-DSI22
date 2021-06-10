@@ -9,6 +9,8 @@
         </button>
     </div>
 @endif
+<br>
+<br>
 <a href="{{ route('produits.create') }}" class="btn btn-outline-primary float-right"><i class="fas fa-user-plus"></i> Add new produit</a>
 <div class="text-info"><h3><i class="fas fa-users"></i> Produits list</h3></div>
  <br>

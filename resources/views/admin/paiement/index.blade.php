@@ -9,6 +9,8 @@
         </button>
     </div>
 @endif
+<br>
+<br>
 <a href="{{ route('paiements.create') }}" class="btn btn-outline-primary float-right"><i class="fas fa-user-plus"></i> Add new  Paiement</a>
 <div class="text-info"><h3><i class="fas fa-users"></i>Paiement list</h3></div>
  <br>
