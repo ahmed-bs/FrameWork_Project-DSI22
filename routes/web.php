@@ -51,6 +51,7 @@ Route::post('/paiement', 'CheckController@charge')->name('check.charge');
 Route::get('/videpanier', function () {
     Cart::destroy();
 });
+Route::resource('views','ProduitAjoutController');
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::post('/panier/ajouter', 'CartController@store')->name('cart.store');

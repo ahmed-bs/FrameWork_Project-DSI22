@@ -40,7 +40,7 @@
   
     <li class="nav-item">
       
-    <a href="#" class="nav-link waves-effect"><i class="fas fa-plus"></i>  je vends un article</a>
+    <a href="{{ route('views.create') }}" class="nav-link waves-effect"><i class="fas fa-plus"></i>  je vends un article</a>
     <div class="col-lg-3">
 
     </li>

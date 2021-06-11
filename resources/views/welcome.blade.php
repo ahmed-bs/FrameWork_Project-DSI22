@@ -22,6 +22,14 @@
           {{ session('success') }}
       </div>
   @endif
+  @if (session('storeProduit'))
+    <div class="alert alert-dismissible alert-success fade show" role="alert">
+        {{ session('storeProduit') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
         <div class="carousel slide my-4" id="carouselExampleIndicators" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li class="active" data-target="#carouselExampleIndicators" data-slide-to="0"></li>
